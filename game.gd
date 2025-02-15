@@ -12,6 +12,10 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	%Total.text = "$%.0f" % Global.gold;
 	%Current.text = "$%.0f" % current;
+	%Smoke.scale_amount_min = lerp(1, 5, noise / 100);;
+	%Smoke.scale_amount_max = lerpf(3, 10, noise / 100);
+	%Smoke.initial_velocity_min = lerpf(50, 100, noise / 100);
+	%Smoke.initial_velocity_max = lerpf(100, 200, noise / 100);
 
 	if (Input.is_action_just_pressed("Flee")):
 		_on_flee_pressed();
