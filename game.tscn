@@ -1,0 +1,94 @@
+[gd_scene load_steps=9 format=3 uid="uid://doh82ac2o70jh"]
+
+[ext_resource type="Texture2D" uid="uid://celf4ofy707c6" path="res://dragon/dragon.png" id="1_0tl21"]
+[ext_resource type="Script" path="res://game.gd" id="1_8rrpj"]
+[ext_resource type="Texture2D" uid="uid://cxrjii7bf1rey" path="res://actions/flee.png" id="2_5xgqg"]
+[ext_resource type="Texture2D" uid="uid://dbk0nsm6uh54d" path="res://actions/take.png" id="3_7rfc2"]
+[ext_resource type="Texture2D" uid="uid://dya1cy4uwu1yw" path="res://actions/skip.png" id="4_7sau2"]
+
+[sub_resource type="Gradient" id="Gradient_vy6ig"]
+offsets = PackedFloat32Array(0, 0.681818)
+colors = PackedColorArray(0.188235, 0.176471, 0.156863, 1, 0.0950136, 0.0175913, 0.0175992, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cpise"]
+gradient = SubResource("Gradient_vy6ig")
+fill = 1
+fill_from = Vector2(0.2, 0.4)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5quwb"]
+font_size = 64
+font_color = Color(0.803922, 0.803922, 0.27451, 1)
+outline_size = 3
+outline_color = Color(0.0862745, 0.215686, 1, 1)
+shadow_size = 4
+shadow_color = Color(0.270588, 0, 0, 1)
+
+[node name="Game" type="TextureRect"]
+texture_filter = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_cpise")
+script = ExtResource("1_8rrpj")
+
+[node name="Dragon" type="Sprite2D" parent="."]
+modulate = Color(0.366595, 0.366595, 0.366595, 1)
+position = Vector2(762, 202)
+scale = Vector2(8, 8)
+texture = ExtResource("1_0tl21")
+
+[node name="Flee" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 415.0
+offset_right = 140.0
+offset_bottom = 528.0
+tooltip_text = "Flee (Ending your Run)"
+action_mode = 0
+texture_normal = ExtResource("2_5xgqg")
+stretch_mode = 4
+
+[node name="Take" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 520.0
+offset_top = 360.0
+offset_right = 634.0
+offset_bottom = 473.0
+tooltip_text = "Take (and Advance to the Next Pile of Gold)"
+action_mode = 0
+texture_normal = ExtResource("3_7rfc2")
+stretch_mode = 4
+
+[node name="Skip" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 972.0
+offset_top = 414.0
+offset_right = 1086.0
+offset_bottom = 527.0
+tooltip_text = "Skip (and Advance to the Next Pile of Gold)"
+action_mode = 0
+texture_normal = ExtResource("4_7sau2")
+stretch_mode = 4
+
+[node name="Current" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 406.0
+offset_top = 472.0
+offset_right = 726.0
+offset_bottom = 560.0
+text = "$0"
+label_settings = SubResource("LabelSettings_5quwb")
+horizontal_alignment = 1
+
+[node name="Total" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 29.0
+offset_top = 319.0
+offset_right = 203.0
+offset_bottom = 407.0
+text = "$0"
+label_settings = SubResource("LabelSettings_5quwb")
