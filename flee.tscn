@@ -1,0 +1,85 @@
+[gd_scene load_steps=7 format=3 uid="uid://55yw534gl8eg"]
+
+[ext_resource type="Script" path="res://flee.gd" id="1_1vsx8"]
+
+[sub_resource type="Gradient" id="Gradient_vy6ig"]
+offsets = PackedFloat32Array(0, 0.681818)
+colors = PackedColorArray(0.803922, 0.823529, 0.854902, 1, 0.568627, 0.741176, 0.733333, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mt8w3"]
+gradient = SubResource("Gradient_vy6ig")
+fill = 1
+fill_from = Vector2(0.2, 0.4)
+
+[sub_resource type="LabelSettings" id="LabelSettings_q6bjc"]
+font_size = 96
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fa7c8"]
+font_size = 64
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7xmec"]
+font_size = 64
+font_color = Color(0, 0, 0, 1)
+
+[node name="Flee" type="TextureRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_mt8w3")
+script = ExtResource("1_1vsx8")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 327.0
+grow_horizontal = 2
+text = "You safely made it out!"
+label_settings = SubResource("LabelSettings_q6bjc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -352.0
+offset_bottom = -221.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "Final Score: "
+label_settings = SubResource("LabelSettings_fa7c8")
+
+[node name="Score" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "$0"
+label_settings = SubResource("LabelSettings_7xmec")
+
+[node name="PlayAgain" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -177.0
+offset_top = -167.0
+offset_right = 178.0
+offset_bottom = -92.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 48
+text = "Play Again!"
+
+[connection signal="pressed" from="PlayAgain" to="." method="_on_play_again_pressed"]

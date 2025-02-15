@@ -1,19 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://doh82ac2o70jh"]
+[gd_scene load_steps=8 format=3 uid="uid://doh82ac2o70jh"]
 
 [ext_resource type="Texture2D" uid="uid://celf4ofy707c6" path="res://dragon/dragon.png" id="1_0tl21"]
 [ext_resource type="Script" path="res://game.gd" id="1_8rrpj"]
+[ext_resource type="Texture2D" uid="uid://dodtlbbykm3gv" path="res://cave_texture.tres" id="1_i8gak"]
 [ext_resource type="Texture2D" uid="uid://cxrjii7bf1rey" path="res://actions/flee.png" id="2_5xgqg"]
 [ext_resource type="Texture2D" uid="uid://dbk0nsm6uh54d" path="res://actions/take.png" id="3_7rfc2"]
 [ext_resource type="Texture2D" uid="uid://dya1cy4uwu1yw" path="res://actions/skip.png" id="4_7sau2"]
-
-[sub_resource type="Gradient" id="Gradient_vy6ig"]
-offsets = PackedFloat32Array(0, 0.681818)
-colors = PackedColorArray(0.188235, 0.176471, 0.156863, 1, 0.0950136, 0.0175913, 0.0175992, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_cpise"]
-gradient = SubResource("Gradient_vy6ig")
-fill = 1
-fill_from = Vector2(0.2, 0.4)
 
 [sub_resource type="LabelSettings" id="LabelSettings_5quwb"]
 font_size = 64
@@ -30,7 +22,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("GradientTexture2D_cpise")
+texture = ExtResource("1_i8gak")
 script = ExtResource("1_8rrpj")
 
 [node name="Dragon" type="Sprite2D" parent="."]
@@ -92,3 +84,7 @@ offset_right = 203.0
 offset_bottom = 407.0
 text = "$0"
 label_settings = SubResource("LabelSettings_5quwb")
+
+[connection signal="pressed" from="Flee" to="." method="_on_flee_pressed"]
+[connection signal="pressed" from="Take" to="." method="_on_take_pressed"]
+[connection signal="pressed" from="Skip" to="." method="_on_skip_pressed"]
