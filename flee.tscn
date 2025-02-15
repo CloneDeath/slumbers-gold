@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://55yw534gl8eg"]
+[gd_scene load_steps=7 format=3 uid="uid://c0riefjvuc0n"]
 
-[ext_resource type="Script" path="res://flee.gd" id="1_1vsx8"]
+[ext_resource type="Script" path="res://flee.gd" id="1_6aajm"]
 
 [sub_resource type="Gradient" id="Gradient_vy6ig"]
 offsets = PackedFloat32Array(0, 0.681818)
@@ -30,7 +30,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_mt8w3")
-script = ExtResource("1_1vsx8")
+script = ExtResource("1_6aajm")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
