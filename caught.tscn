@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://55yw534gl8eg"]
+[gd_scene load_steps=12 format=3 uid="uid://55yw534gl8eg"]
 
 [ext_resource type="Script" path="res://caught.gd" id="1_1vsx8"]
+[ext_resource type="Texture2D" uid="uid://buv70noahkpx5" path="res://keyboard_arrow_right_outline.png" id="2_pfhcp"]
 [ext_resource type="PackedScene" uid="uid://dgqaxrhybrwmu" path="res://leaderboard.tscn" id="2_qfitm"]
 
 [sub_resource type="Gradient" id="Gradient_vy6ig"]
@@ -131,6 +132,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 48
 text = "Play Again!"
+icon = ExtResource("2_pfhcp")
 
 [node name="Leaderboard" parent="." instance=ExtResource("2_qfitm")]
 layout_mode = 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://doh82ac2o70jh"]
+[gd_scene load_steps=15 format=3 uid="uid://doh82ac2o70jh"]
 
 [ext_resource type="Texture2D" uid="uid://celf4ofy707c6" path="res://dragon/dragon.png" id="1_0tl21"]
 [ext_resource type="Script" path="res://game.gd" id="1_8rrpj"]
@@ -18,6 +18,15 @@ outline_size = 3
 outline_color = Color(0.0862745, 0.215686, 1, 1)
 shadow_size = 4
 shadow_color = Color(0.270588, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_01cv0"]
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_bfhbr"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_j8xmf"]
+font_size = 32
 
 [node name="Game" type="TextureRect"]
 texture_filter = 3
@@ -130,6 +139,36 @@ initial_velocity_min = 50.0
 initial_velocity_max = 100.0
 angle_max = 360.0
 scale_amount_max = 3.0
+
+[node name="GoalText" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 29.0
+offset_top = 22.0
+offset_right = 583.0
+offset_bottom = 227.0
+text = "Snag a coin or two"
+label_settings = SubResource("LabelSettings_01cv0")
+autowrap_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 264.0
+offset_right = 451.0
+offset_bottom = 342.0
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+text = "Next Goal:"
+label_settings = SubResource("LabelSettings_bfhbr")
+
+[node name="Goal" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "$10"
+label_settings = SubResource("LabelSettings_j8xmf")
 
 [connection signal="pressed" from="Flee" to="." method="_on_flee_pressed"]
 [connection signal="pressed" from="Flee/FleeButton" to="." method="_on_flee_pressed"]

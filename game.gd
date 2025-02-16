@@ -4,6 +4,20 @@ var current = 0;
 var piles = 0;
 var noise = 0;
 
+const goal_text = [
+	"TAKE IT ALL!!!", # 1000
+	"Take what's yours!", # 750
+	"Take your lion's share!", # 500
+	"He won't even notice!", # 250
+	"Maybe just a dragon’s handful more...", # 150
+	"I mean, it's begging for you to take it...", # 100
+	"Ohh, look! Money!", # 50
+	"Go ahead, help yourself", # 10
+	"Snag a coin or two", # 0
+]
+
+const goals = [1000, 750, 500, 250, 150, 100, 50, 10, 0];
+
 func _ready() -> void:
 	Global.gold = 0;
 	Global.dropped = 0;
@@ -16,6 +30,15 @@ func _process(_delta: float) -> void:
 	%Smoke.scale_amount_max = lerpf(3, 10, noise / 100.0);
 	%Smoke.initial_velocity_min = lerpf(50, 100, noise / 100.0);
 	%Smoke.initial_velocity_max = lerpf(100, 200, noise / 100.0);
+
+	for i in range(0, goals.size()):
+		if Global.gold >= goals[i]:
+			%GoalText.text = goal_text[i]
+			if i == 0:
+				%Goal.text = "$∞"
+			else:
+				%Goal.text = "$%.0f" % (goals[i - 1])
+			break
 
 	if (Input.is_action_just_pressed("Flee")):
 		_on_flee_pressed();
