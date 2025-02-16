@@ -44,12 +44,27 @@ position = Vector2(762, 202)
 scale = Vector2(8, 8)
 texture = ExtResource("1_0tl21")
 
+[node name="Smoke" type="CPUParticles2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(728, 283)
+lifetime = 3.0
+texture = ExtResource("7_jr7e0")
+direction = Vector2(-1, 0)
+gravity = Vector2(0, -245)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+angle_max = 360.0
+scale_amount_max = 3.0
+
 [node name="Flee" type="TextureButton" parent="."]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
 offset_left = 45.0
-offset_top = 421.0
+offset_top = -227.0
 offset_right = 159.0
-offset_bottom = 534.0
+offset_bottom = -114.0
 tooltip_text = "Flee (Ending your Run)"
 action_mode = 0
 texture_normal = ExtResource("2_5xgqg")
@@ -65,12 +80,27 @@ action_mode = 0
 text = "Flee"
 icon = ExtResource("5_d5yfl")
 
-[node name="Take" type="TextureButton" parent="."]
+[node name="Total" type="Label" parent="Flee"]
+unique_name_in_owner = true
 layout_mode = 0
-offset_left = 520.0
-offset_top = 360.0
-offset_right = 634.0
-offset_bottom = 473.0
+offset_left = -20.0
+offset_top = -81.0
+offset_right = 154.0
+offset_bottom = 7.0
+text = "$0"
+label_settings = SubResource("LabelSettings_5quwb")
+
+[node name="Take" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.514
+anchor_top = 1.0
+anchor_right = 0.514
+anchor_bottom = 1.0
+offset_left = -72.128
+offset_top = -288.0
+offset_right = 41.872
+offset_bottom = -175.0
 tooltip_text = "Take (and Advance to the Next Pile of Gold)"
 action_mode = 0
 texture_normal = ExtResource("3_7rfc2")
@@ -86,12 +116,30 @@ action_mode = 0
 text = "Take"
 icon = ExtResource("7_8jtsc")
 
-[node name="Skip" type="TextureButton" parent="."]
+[node name="Current" type="Label" parent="Take"]
+unique_name_in_owner = true
 layout_mode = 0
-offset_left = 972.0
-offset_top = 414.0
-offset_right = 1086.0
-offset_bottom = 527.0
+offset_left = -114.0
+offset_top = 112.0
+offset_right = 206.0
+offset_bottom = 200.0
+text = "$0"
+label_settings = SubResource("LabelSettings_5quwb")
+horizontal_alignment = 1
+
+[node name="Skip" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -180.0
+offset_top = -234.0
+offset_right = -66.0
+offset_bottom = -121.0
+grow_horizontal = 0
+grow_vertical = 0
 tooltip_text = "Skip (and Advance to the Next Pile of Gold)"
 action_mode = 0
 texture_normal = ExtResource("4_7sau2")
@@ -106,39 +154,6 @@ offset_bottom = 193.0
 action_mode = 0
 text = "Skip"
 icon = ExtResource("9_4oiql")
-
-[node name="Current" type="Label" parent="."]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 406.0
-offset_top = 472.0
-offset_right = 726.0
-offset_bottom = 560.0
-text = "$0"
-label_settings = SubResource("LabelSettings_5quwb")
-horizontal_alignment = 1
-
-[node name="Total" type="Label" parent="."]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 25.0
-offset_top = 340.0
-offset_right = 199.0
-offset_bottom = 428.0
-text = "$0"
-label_settings = SubResource("LabelSettings_5quwb")
-
-[node name="Smoke" type="CPUParticles2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(728, 283)
-lifetime = 3.0
-texture = ExtResource("7_jr7e0")
-direction = Vector2(-1, 0)
-gravity = Vector2(0, -245)
-initial_velocity_min = 50.0
-initial_velocity_max = 100.0
-angle_max = 360.0
-scale_amount_max = 3.0
 
 [node name="GoalText" type="Label" parent="."]
 unique_name_in_owner = true
