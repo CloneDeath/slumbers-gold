@@ -12,10 +12,10 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	%Total.text = "$%.0f" % Global.gold;
 	%Current.text = "$%.0f" % current;
-	%Smoke.scale_amount_min = lerp(1, 5, noise / 100);;
-	%Smoke.scale_amount_max = lerpf(3, 10, noise / 100);
-	%Smoke.initial_velocity_min = lerpf(50, 100, noise / 100);
-	%Smoke.initial_velocity_max = lerpf(100, 200, noise / 100);
+	%Smoke.scale_amount_min = lerp(1, 5, noise / 100.0);;
+	%Smoke.scale_amount_max = lerpf(3, 10, noise / 100.0);
+	%Smoke.initial_velocity_min = lerpf(50, 100, noise / 100.0);
+	%Smoke.initial_velocity_max = lerpf(100, 200, noise / 100.0);
 
 	if (Input.is_action_just_pressed("Flee")):
 		_on_flee_pressed();
@@ -34,15 +34,15 @@ func _on_flee_pressed() -> void:
 func _on_take_pressed() -> void:
 	var noise_factor := randf_range(0.5, 2);
 	noise += current * noise_factor;
+	Global.gold += current;
 	if (noise > 100):
 		wake_up_dragon();
 		return;
 	if (noise < 0): noise = 0;
-	Global.gold += current;
 	randomize_current();
 
 func wake_up_dragon():
-	Global.dropped = randi_range(0, Global.gold / 2);
+	Global.dropped = randi_range(0, Global.gold / 2.0);
 	Global.gold -= Global.dropped;
 	get_tree().change_scene_to_file("res://caught.tscn");
 

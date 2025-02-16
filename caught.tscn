@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://55yw534gl8eg"]
+[gd_scene load_steps=11 format=3 uid="uid://55yw534gl8eg"]
 
 [ext_resource type="Script" path="res://caught.gd" id="1_1vsx8"]
+[ext_resource type="PackedScene" uid="uid://dgqaxrhybrwmu" path="res://leaderboard.tscn" id="2_qfitm"]
 
 [sub_resource type="Gradient" id="Gradient_vy6ig"]
 offsets = PackedFloat32Array(0, 0.681818)
@@ -130,5 +131,15 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 48
 text = "Play Again!"
+
+[node name="Leaderboard" parent="." instance=ExtResource("2_qfitm")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_right = 0.0
+offset_top = -290.0
+offset_right = 236.0
+grow_horizontal = 1
+grow_vertical = 0
 
 [connection signal="pressed" from="PlayAgain" to="." method="_on_play_again_pressed"]

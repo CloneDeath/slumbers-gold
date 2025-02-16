@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://c0riefjvuc0n"]
+[gd_scene load_steps=9 format=3 uid="uid://c0riefjvuc0n"]
 
 [ext_resource type="Script" path="res://flee.gd" id="1_6aajm"]
+[ext_resource type="PackedScene" uid="uid://dgqaxrhybrwmu" path="res://leaderboard.tscn" id="2_uff12"]
 
 [sub_resource type="Gradient" id="Gradient_vy6ig"]
 offsets = PackedFloat32Array(0, 0.681818)
@@ -22,6 +23,10 @@ font_color = Color(0, 0, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_7xmec"]
 font_size = 64
 font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_piodf"]
+Label/colors/font_color = Color(0, 0, 0, 1)
+RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
 
 [node name="Flee" type="TextureRect"]
 anchors_preset = 15
@@ -81,5 +86,16 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 48
 text = "Play Again!"
+
+[node name="Leaderboard" parent="." instance=ExtResource("2_uff12")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_right = 0.0
+offset_top = -294.0
+offset_right = 233.0
+grow_horizontal = 1
+grow_vertical = 0
+theme = SubResource("Theme_piodf")
 
 [connection signal="pressed" from="PlayAgain" to="." method="_on_play_again_pressed"]

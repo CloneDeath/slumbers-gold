@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Global="*res://global.gd"
+HighScore="*res://high_score.gd"
 
 [dotnet]
 
