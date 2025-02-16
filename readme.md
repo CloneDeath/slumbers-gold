@@ -2,6 +2,8 @@
 
 Made as part of [Trijam #309: The three hour game jam](https://itch.io/jam/trijam-309)
 
+Took 2 hours 37 minutes 23 seconds to make.
+
 # Once Upon a Time...
 
 ... the King of Greed had enough, and put a bounty on Slumber (the realms most wealthy Dragon)! Whoever slays the Dragon would receive wealth beyond measure, and most importantly: the hand of his 16th eldest daughter, making you only 104th in line for the crown itself!
